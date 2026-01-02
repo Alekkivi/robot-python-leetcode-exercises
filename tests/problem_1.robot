@@ -9,3 +9,9 @@ Returns a list
 Result list contains two items
     ${result}=    Two Sum    [2, 7, 11, 15]    9
     Length Should Be    ${result}    2
+
+Result list contains only integers
+    ${result}=    Two Sum    [2, 7, 11, 15]    9
+    FOR    ${item}    IN    @{result}
+            Should Be True    ${{ isinstance($item, int) }}
+    END
