@@ -1,14 +1,11 @@
 
 def two_sum(nums, target):
-    result = []
+    seen = {}
+
     for i, num in enumerate(nums):
-        for j in range(i + 1, len(nums)):
-            if num + nums[j] == target:
-                result.append(i)
-                result.append(j)
-                return result
-    return []
-
-print(two_sum([1,2,4,6,2134,53,2,1,4,6,2], 99))
-
-
+        missing_val = target - num
+        if missing_val in seen:
+            return [seen[missing_val], i]
+        else:
+            seen[num] = i
+    return []    
