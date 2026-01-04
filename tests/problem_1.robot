@@ -39,3 +39,11 @@ Returns correct indices
     @{expected}=    As Integer List    0    1
     ${result}=    Two Sum    ${nums}    ${target}
     Should Be Equal    ${result}    ${expected}
+
+Returns empty list when target not found
+    ${nums}     As Integer List    @{DEFAULT_NUMS}
+    ${impossible_target}=      Convert to integer      72
+    ${result}=    Two Sum    ${nums}    ${impossible_target}
+    Should Be True    ${{ isinstance($result, list) }}
+    Length Should Be    ${result}    0
+
