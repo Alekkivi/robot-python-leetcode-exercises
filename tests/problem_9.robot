@@ -19,3 +19,13 @@ Single digit numbers are always palindromes
         Should Be Equal    ${result}    ${True}
     END
 
+Returns False when not palindrome
+    ${expected_false_result}=    Is Palindrome    ${51}
+    Should Be Equal    ${expected_false_result}    ${False}
+
+Returns True when palindrome
+    ${expected_true_result}=    Is Palindrome    ${414}
+    Should Be Equal    ${expected_true_result}    ${True}
+
+
+
