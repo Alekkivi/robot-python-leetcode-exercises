@@ -19,6 +19,10 @@ Single digit numbers are always palindromes
         Should Be Equal    ${result}    ${True}
     END
 
+Number ending with zero can not be palindrome
+        ${result}=    Is Palindrome    ${500}
+        Should Be Equal    ${result}    ${False}
+
 Returns False when not palindrome
     ${expected_false_result}=    Is Palindrome    ${51}
     Should Be Equal    ${expected_false_result}    ${False}
